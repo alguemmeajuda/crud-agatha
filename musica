@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Musicas</title>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" showDetail="true" sticky="true"/>
+        <p:fieldset legend="Musica" style="margin-bottom: 20px; font-size: small;">
+            <h:form>
+                <p:outputLabel value="Código:" for="itCodigo" />
+                <p:inputText id="itCodigo" value="#{telaLocalizaBean.musica.codigo}" /><br/>
+                <p:outputLabel value="Título:" for="itTitulo"/>
+                <p:inputText id="itTitulo" value="#{telaLocalizaBean.musica.titulo}" required="true"
+                             requiredMessage="É obrigatório um título!" maxlength="50"/><br/>
+                <p:outputLabel value="Interprete:" for="itInterprete"/>
+                <p:inputText id="itInterprete" value="#{telaLocalizaBean.musica.interprete}" maxlength="100"/><br/>
+                <p:outputLabel value="Letra:" for="itLetra"/>
+                <p:inputText id="itLetra" value="#{telaLocalizaBean.musica.letra}" /><br/>
+                
+                <p:commandButton icon="pi pi-save" action="#{telaLocalizaBean.salva()}" ajax="false"/>
+            </h:form>
+            <h:form>
+                <p:commandButton icon="pi pi-arrow-left" action="#{telaLocalizaBean.cancela}"/>
+            </h:form>
+        </p:fieldset>
+    </h:body>
+</html>
